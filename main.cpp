@@ -1,30 +1,39 @@
-#include <iostream>   // cout, endl
-#include <cassert>    // assert()
-#include <random>     // random_device, mt19937
-#include <iterator>   // std::begin(), std::end()
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <new>
 
 using namespace std;
 
-  template <typename Itr, typename Compare >
-pair<Itr, Itr> minmax( Itr first, Itr last, Compare cmp )
-{
-    // TODO
-    return make_pair( first, first );
-} 
+int main ( void ){
 
-int main ( void )
-{
+  //Permite usar acentos
+  setlocale(LC_ALL,"");
 
-vector<int> vect;               // Declara um vetor de inteiros.
-    for (auto i(0) ; i < 6 ; ++i)
-        vect.push_back(i);          // Insere elementos no vetor
-    vector<int>::const_iterator it; // Declara um iterator
-    it = vect.begin();              // Atribui ao iterator o inicio do vetor
-    while (it != vect.end()) {      // Enquanto não chegou no fim
-        cout << *it << " ";         // imprime o valor do elemento "apontado" pelo iterato
-        ++it;                       // move para o próximo elemento
-    }
-    cout << endl;
+  int vetor[5];    // Declara um vetor de inteiros.
+  int min, max;
+      for (int i = 0 ; i < 6 ; ++i){
+        cout << "Entre com o valor " << i << endl;
+          cin >> vetor[i]; 
+      }      // Insere elementos no vetor
+      
+      for(int i = 0; i < 6; ++i){
+        cout << vetor[i] << " ";
+      }
 
+      cout << endl;
+
+      max = vetor[0];
+      for(int i = 1; i < 5; i++){
+        if(vetor[i] > max){
+          max = vetor[i];
+        }
+      }
+
+      cout << max << endl;
 }
+  
