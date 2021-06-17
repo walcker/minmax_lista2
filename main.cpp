@@ -15,7 +15,7 @@ int main ( void ){
   setlocale(LC_ALL,"");
 
   int vetor[5];    // Declara um vetor de inteiros.
-  int min, max;
+  int min, max, max_i, min_i;
       for (int i = 0 ; i < 6 ; ++i){
         cout << "Entre com o valor " << i << endl;
           cin >> vetor[i]; 
@@ -31,9 +31,18 @@ int main ( void ){
       for(int i = 1; i < 5; i++){
         if(vetor[i] > max){
           max = vetor[i];
+          max_i = i;
         }
       }
 
-      cout << max << endl;
+      min = vetor[0];
+      for(int i = 1; i < 5; i++){
+        if(vetor[i] < min){
+          min = vetor[i];
+          min_i = i;
+        }
+      }
+
+      cout << max_i << " " << min_i << endl;
 }
   
