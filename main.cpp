@@ -1,37 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <string.h>
 #include <string>
-#include <fstream>
 #include <iostream>
 #include <new>
 
 using namespace std;
 
-int main ( void ){
+int main(){
+    //Permite usar acentos
+    setlocale(LC_ALL,"");
 
-  //Permite usar acentos
-  setlocale(LC_ALL,"");
+    //Definindo variáveis
+    int tamanho, cont, max, min, min_i = 0, max_i = 0;
 
-  int vetor[5];    // Declara um vetor de inteiros.
-  int min, max, max_i, min_i;
-      
-      //Pede os valores do vetor ao usuário
-      for (int i = 0 ; i < 6 ; ++i){
-        cout << "Entre com o valor " << i << endl;
-          cin >> vetor[i]; 
-      }      // Insere elementos no vetor
-      
-      //Imprime o vetor na tela
-      for(int i = 0; i < 6; ++i){
-        cout << vetor[i] << " ";
-      }
+    //Lendo o tamanho do vetor
+    cout << "Digite o tamanho do vetor que deseja criar: ";
+    cin >> tamanho;
 
-      cout << endl;
+    //Criando um ponteiro que recebe o novo vetor vazio
+    int vetor[tamanho];
 
-      //Encontra o local do valor máximo no vetor
-      max = vetor[0];
+    //Modificando e imprimindo valores
+    for(cont = 0; cont < tamanho; cont++){
+        cout << "entre com o valor do vetor na posição: " << cont << endl;
+        cin >> vetor[cont];
+    }
+
+    for(int i = 0; i < tamanho; i++){
+      cout << vetor[i] << " ";
+    }
+
+    cout << endl;
+
+    max = vetor[0];
       for(int i = 1; i < 5; i++){
         if(vetor[i] > max){
           max = vetor[i];
@@ -39,7 +41,6 @@ int main ( void ){
         }
       }
 
-      //Encontra o local do valor mínimo no vetor
       min = vetor[0];
       for(int i = 1; i < 5; i++){
         if(vetor[i] < min){
@@ -47,8 +48,9 @@ int main ( void ){
           min_i = i;
         }
       }
+   
 
-      //Imprime a localização dos valores máximo e mínimo no vetor
-      cout << max_i << " " << min_i << endl;
+    cout << max_i << " " << min_i << endl;
+
+    return 0;
 }
-  
